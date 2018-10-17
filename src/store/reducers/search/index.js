@@ -1,6 +1,7 @@
 const initialState = {
   results: [],
-  detail: undefined
+  detail: undefined,
+  detailLoading: false
 };
 
 const search = (state = initialState, action) => {
@@ -10,9 +11,16 @@ const search = (state = initialState, action) => {
     });
   }
 
+  if (action.type === "DETAIL_LOADING") {
+    return Object.assign({}, state, {
+      detailLoading: true
+    });
+  }
+
   if (action.type === "DETAIL") {
     return Object.assign({}, state, {
-      detail: action.result
+      detail: action.result,
+      detailLoading: false
     });
   }
 

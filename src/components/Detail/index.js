@@ -2,6 +2,7 @@ import ReactDOM from "react-dom";
 import React from "react";
 import styled from "styled-components";
 import { background, border } from "styles/colors";
+import Spinner from "components/Spinner";
 
 const Modal = styled.div`
   position: fixed;
@@ -51,20 +52,23 @@ const Close = styled.div`
 `;
 
 export default props => {
-  if (!props.detail) {
+  if (!props.detail && !props.detailLoading) {
     return null;
   }
 
   return ReactDOM.createPortal(
     <Modal onClick={() => props.onItemClosed()}>
       <Close onClick={() => props.onItemClosed()}>X</Close>
-      <Container>
-        <Heading>{props.detail.Title}</Heading>
-        <Content>
-          <img src={props.detail.ImageUrls[0].ImageUrl} alt="card" />
-          <Detail>Select a size...</Detail>
-        </Content>
-      </Container>
+      {!props.detailLoading && (
+        <Container>
+          <Heading>{props.detail.Title}</Heading>
+          <Content>
+            <img src={props.detail.ImageUrls[0].ImageUrl} alt="card" />
+            <Detail>Select a size...</Detail>
+          </Content>
+        </Container>
+      )}
+      {props.detailLoading && <Spinner />}
     </Modal>,
     document.getElementById("modal")
   );

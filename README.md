@@ -15,6 +15,8 @@ ESlint airbnb and prettier
 
 Router
 
+constants
+
 seo
     - nfl helmet
     - ssr
