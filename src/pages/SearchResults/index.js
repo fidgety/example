@@ -3,9 +3,9 @@ import SearchResults from "containers/SearchResults";
 
 import { get, remove } from "store/actionCreators/detail";
 
-const mapStateToProps = ({ results, result }) => ({
+const mapStateToProps = ({ results, detail }) => ({
   results,
-  result
+  detail
 });
 
 const mapDispatchToProps = dispatch => ({
