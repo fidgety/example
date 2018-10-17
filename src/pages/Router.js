@@ -9,7 +9,7 @@ const BasicExample = () => (
   <Router>
     <React.Fragment>
       <Route exact path="/" component={Home} />
-      <Route path="/search" component={SearchResults} />
+      <Route path="/search/:searchTerm?" component={SearchResults} />
       <Route path="/detail" component={ItemDetail} />
     </React.Fragment>
   </Router>

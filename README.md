@@ -21,3 +21,7 @@ redux
 styleguideist
 
 containers
+
+imaages
+    -srcset
+    -laxyload

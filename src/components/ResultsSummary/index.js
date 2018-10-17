@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { array } from "prop-types";
+import { Link } from "react-router-dom";
 
 const Summary = styled.div`
     font-size: 1.3em,
@@ -16,6 +17,7 @@ const List = ({ results }) => (
       {` ${results.length} `}
       cards
     </Summary>
+    <Link to="/">Search again</Link>
   </React.Fragment>
 );
 

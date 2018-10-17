@@ -1,6 +1,6 @@
 import React from "react";
-
 import { func } from "prop-types";
+import { history as historyPropType } from "react-router-prop-types";
 
 class Search extends React.Component {
   constructor() {
@@ -12,13 +12,14 @@ class Search extends React.Component {
 
   render() {
     const { search } = this.state;
-    const { onSearch } = this.props;
+    const { onSearch, history } = this.props;
 
     return (
       <form
         onSubmit={e => {
           e.preventDefault();
           onSearch(search);
+          history.push(`/search/${search}`); // this makes me sad
         }}
       >
         <input
@@ -42,7 +43,8 @@ class Search extends React.Component {
 }
 
 Search.propTypes = {
-  onSearch: func.isRequired
+  onSearch: func.isRequired,
+  history: historyPropType.isRequired
 };
 
 export default Search;
