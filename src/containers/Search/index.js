@@ -6,18 +6,30 @@ import styled from "styled-components";
 import { primary, disabled, background, border } from "styles/colors";
 
 const Container = styled.div`
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
+  padding-top: 4rem;
+  @media only screen and (min-width: 600px) {
+    & {
+      padding-top: 0;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+    }
+  }
 `;
 
 const Input = styled.input`
+  width: 100%;
   font-size: 2rem;
   padding: 0.7rem;
   &::placeholder {
     color: ${disabled};
+  }
+  @media only screen and (min-width: 600px) {
+    & {
+      width: auto;
+    }
   }
 `;
 
@@ -33,10 +45,14 @@ const Button = styled.input`
 `;
 
 const Form = styled.form`
-  display: flex;
   ${background};
   ${border};
   padding: 2rem;
+  @media only screen and (min-width: 600px) {
+    & {
+      display: flex;
+    }
+  }
 `;
 
 class Search extends React.Component {

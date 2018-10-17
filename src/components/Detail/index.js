@@ -21,11 +21,15 @@ const Container = styled.div`
 
 const Content = styled.div`
   margin-top: 20px;
-  display: flex;
-  justify-content: space-between;
   ${background};
   ${border};
   padding: 20px;
+  @media only screen and (min-width: 600px) {
+    & {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 `;
 
 const Detail = styled.div`

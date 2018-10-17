@@ -13,8 +13,26 @@ const ResultsContainer = styled.ul`
 `;
 
 const ResultWrapper = styled.li`
-  width: 33%;
+  width: 100%;
   padding: 10px;
+
+  @media only screen and (min-width: 600px) {
+    & {
+      width: 50%;
+    }
+  }
+
+  @media only screen and (min-width: 800px) {
+    & {
+      width: 33%;
+    }
+  }
+
+  @media only screen and (min-width: 1000px) {
+    & {
+      width: 25%;
+    }
+  }
 `;
 
 const Results = ({ results, onItemClosed, onItemClicked }) => {
