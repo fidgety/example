@@ -1,4 +1,4 @@
-export const primary = "red";
+export const primary = "pink";
 export const secondary = "blue";
 export const disabled = "lightgrey";
 

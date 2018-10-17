@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom";
 import React from "react";
 import styled from "styled-components";
+import { background, border } from "styles/colors";
 
 const Modal = styled.div`
   position: fixed;
@@ -12,17 +13,58 @@ const Modal = styled.div`
   z-index: 999;
 `;
 
+const Container = styled.div`
+  margin: 3rem auto;
+  max-width: 800px;
+`;
+
+const Content = styled.div`
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  ${background};
+  ${border};
+  padding: 20px;
+`;
+
+const Detail = styled.div`
+  background: white;
+  width: 400px;
+  height: 400px;
+  padding: 10px;
+`;
+
+const Heading = styled.h1`
+  font-size: 1.6rem;
+`;
+
+const Close = styled.div`
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: lightgrey;
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  line-height: 3rem;
+  cursor: pointer;
+`;
+
 export default props => {
-  console.log(props.detail);
   if (!props.detail) {
     return null;
   }
 
   return ReactDOM.createPortal(
     <Modal onClick={() => props.onItemClosed()}>
-      <div onClick={() => props.onItemClosed()}>X</div>
-      <h1>{props.detail.Title}</h1>
-      <img src={props.detail.ImageUrls[0].ImageUrl} alt="card" />
+      <Close onClick={() => props.onItemClosed()}>X</Close>
+      <Container>
+        <Heading>{props.detail.Title}</Heading>
+        <Content>
+          <img src={props.detail.ImageUrls[0].ImageUrl} alt="card" />
+          <Detail>Select a size...</Detail>
+        </Content>
+      </Container>
     </Modal>,
     document.getElementById("modal")
   );

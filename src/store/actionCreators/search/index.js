@@ -1,24 +1,25 @@
-import searchResults from "_exampleResponses/results";
+import search from "data/search";
 
 // showing off some array functions...
-const uniqueResults = searchResults.Products.reduce(
-  ({ results, ids }, result) => {
-    if (ids.indexOf(result.ProductId) < 0) {
+const getUniqueResults = ({ data }) =>
+  data.Products.reduce(
+    ({ results, ids }, result) => {
+      if (ids.indexOf(result.ProductId) < 0) {
+        return {
+          results: results.concat([result]),
+          ids: ids.concat([result.ProductId])
+        };
+      }
       return {
-        results: results.concat([result]),
-        ids: ids.concat([result.ProductId])
+        results,
+        ids
       };
+    },
+    {
+      results: [],
+      ids: []
     }
-    return {
-      results,
-      ids
-    };
-  },
-  {
-    results: [],
-    ids: []
-  }
-).results;
+  ).results;
 
 export default searchTerm => dispatch => {
   dispatch({
@@ -26,10 +27,12 @@ export default searchTerm => dispatch => {
     searchTerm
   });
 
-  Promise.resolve(uniqueResults).then(results => {
-    dispatch({
-      type: "RESULTS",
-      results
+  search(searchTerm)
+    .then(getUniqueResults)
+    .then(results => {
+      dispatch({
+        type: "RESULTS",
+        results
+      });
     });
-  });
 };

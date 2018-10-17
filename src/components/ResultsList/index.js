@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Result from "components/Result";
-import { array } from "prop-types";
+import { array, func } from "prop-types";
 import { background, border } from "styles/colors";
 
 const ResultsContainer = styled.ul`
@@ -18,21 +18,25 @@ const ResultWrapper = styled.li`
 `;
 
 const Results = ({ results, onItemClosed, onItemClicked }) => {
-  const resultsCollection = results.map(({ ProductId, ProductImage }) => (
-    <ResultWrapper key={ProductId}>
-      <Result
-        imageSrc={ProductImage.Link.Href}
-        id={ProductId}
-        onItemClosed={onItemClosed}
-        onItemClicked={onItemClicked}
-      />
-    </ResultWrapper>
-  ));
+  const resultsCollection = results.map(
+    ({ MoonpigProductNo, ProductImage }) => (
+      <ResultWrapper key={MoonpigProductNo}>
+        <Result
+          imageSrc={ProductImage.Link.Href}
+          id={MoonpigProductNo}
+          onItemClosed={onItemClosed}
+          onItemClicked={onItemClicked}
+        />
+      </ResultWrapper>
+    )
+  );
   return <ResultsContainer>{resultsCollection}</ResultsContainer>;
 };
 
 Results.propTypes = {
-    results: array.isRequired //eslint-disable-line
+  results: array.isRequired, //eslint-disable-line
+  onItemClosed: func.isRequired,
+  onItemClicked: func.isRequired
 };
 
 export default Results;

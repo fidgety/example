@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { number, string, func } from "prop-types";
+import { string, func } from "prop-types";
 import { border } from "styles/colors";
 
 const ResultsContainer = styled.div`
@@ -25,7 +25,7 @@ const Result = ({ id, imageSrc, onItemClicked }) => (
 );
 
 Result.propTypes = {
-  id: number.isRequired,
+  id: string.isRequired,
   imageSrc: string.isRequired,
   onItemClicked: func.isRequired
 };

@@ -1,8 +1,6 @@
-import detail from "_exampleResponses/result";
-
 const initialState = {
   results: [],
-  detail
+  detail: undefined
 };
 
 const search = (state = initialState, action) => {

@@ -1,11 +1,10 @@
-import searchResult from "_exampleResponses/result";
+import detail from "data/detail";
 
 export const get = productId => dispatch => {
-  Promise.resolve(searchResult).then(result => {
+  detail(productId).then(result => {
     dispatch({
       type: "DETAIL",
-      result,
-      productId
+      result
     });
   });
 };
