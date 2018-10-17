@@ -4,7 +4,9 @@ import Search from ".";
 
 it("should trigger a search when submit is clicked", () => {
   const onSearchCallback = jest.fn();
-  const component = mount(<Search onSearch={onSearchCallback} />);
+  const component = mount(
+    <Search onSearch={onSearchCallback} history={{ push: () => {} }} />
+  );
 
   component
     .find("input")
@@ -25,7 +27,9 @@ it("should trigger a search when submit is clicked", () => {
 
 it("should not trigger a search if user types less than three characters", () => {
   const onSearchCallback = jest.fn();
-  const component = mount(<Search onSearch={onSearchCallback} />);
+  const component = mount(
+    <Search onSearch={onSearchCallback} history={{ push: () => {} }} />
+  );
 
   component
     .find("input")
