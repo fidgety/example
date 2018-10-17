@@ -2,6 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import { array } from "prop-types";
 import { Link } from "react-router-dom";
+import { background, border } from "styles/colors";
+
+const Header = styled.div`
+  ${background};
+  ${border};
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const SearchAgain = styled(Link)``;
 
 const Summary = styled.div`
     font-size: 1.3em,
@@ -11,14 +22,14 @@ const Summary = styled.div`
 Summary.displayName = "Summary";
 
 const List = ({ results }) => (
-  <React.Fragment>
+  <Header>
     <Summary>
       We have
       {` ${results.length} `}
       cards
     </Summary>
-    <Link to="/">Search again</Link>
-  </React.Fragment>
+    <SearchAgain to="/">Search again</SearchAgain>
+  </Header>
 );
 
 List.propTypes = {

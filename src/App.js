@@ -10,6 +10,9 @@ const GlobalStyle = createGlobalStyle`
   body {
       font-family: Helvetica;
   }
+  * {
+      box-sizing: border-box;
+  }
 `;
 
 const App = () => (

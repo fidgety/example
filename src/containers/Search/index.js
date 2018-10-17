@@ -3,6 +3,8 @@ import { func } from "prop-types";
 import { history as historyPropType } from "react-router-prop-types";
 import styled from "styled-components";
 
+import { primary, disabled, background, border } from "styles/colors";
+
 const Container = styled.div`
   position: absolute;
   left: 50%;
@@ -15,23 +17,26 @@ const Input = styled.input`
   font-size: 2rem;
   padding: 0.7rem;
   &::placeholder {
-    color: lightgrey;
+    color: ${disabled};
   }
 `;
 
 const Button = styled.input`
-  background: red;
+  background: ${primary};
   font-size: 2rem;
   padding: 0.7rem;
   transition: all linear 0.3s;
   &:disabled {
-    background: lightgrey;
+    background: ${disabled};
   }
   cursor: pointer;
 `;
 
 const Form = styled.form`
   display: flex;
+  ${background};
+  ${border};
+  padding: 2rem;
 `;
 
 class Search extends React.Component {
