@@ -1,34 +1,39 @@
+## Example react app
 
-There's a lot going on here, I wanted to delve into a lot of areas so there was more to discuss and pull to bits
+For the size of the app there's a lot going on here, I wanted to explore a few things I've new done before and cover as much as I could so there will be more to discuss and tear apart. [http://moonpig.surge.sh/](http://moonpig.surge.sh/)
 
-HAL
+# To run locally
 
-Timings
-    React/linters/Redux/Router/Pages 40mins
-    Search to results 30mins (lot's of faffing with router as always 🤦🏻‍♂️)
+`yarn`
+`yarn start`
 
+# Create React App
 
-Styled components
-    -reset
+I firmly believe developers should suffer the pain of configuring webpack at least once, I've suffered it more times than a care to remember. Given the time constrains create-react-app made sense as a starting point.
 
-ESlint airbnb and prettier
+# Dev tools added
 
-Router
+- airbnb linting rules
+- prettier
+- redux logger
+- propTypes
 
-constants
+# Stack
 
-seo
-    - nfl helmet
-    - ssr
+- Redux
+- react router
+- redux thunk
 
-prop-types
+# Styled components
 
-redux
+I'm a big fan of styled components, I've added them in for discussion more than anything else
 
-styleguideist
+# Tests
 
-containers
+Time was not kind, I've added a few examples of how I'd approach unit testing React. I'd use Cypress.io for e2e testing if I had time.
 
-imaages
-    -srcset
-    -laxyload
+# Other things I'd like to add
+
+- SEO considerations (helmet and SSR)
+- styleguideist for really nice living documentation
+- page optimisation with srcset and lazy loading of images
