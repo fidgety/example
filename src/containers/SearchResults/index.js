@@ -13,7 +13,7 @@ const SearchResults = ({ detail, results, onItemClosed, onItemClicked }) => (
       onItemClosed={onItemClosed}
       onItemClicked={onItemClicked}
     />
-    <Detail detail={detail} />
+    <Detail detail={detail} onItemClosed={onItemClosed} />
   </React.Fragment>
 );
 
